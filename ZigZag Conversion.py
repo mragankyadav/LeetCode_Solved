@@ -1,7 +1,6 @@
 class Solution(object):
     def convert(self, s, numRows):
-        if (numRows!=1 and s!=None):
-            
+        if (numRows!=1 and s!=None):  
             k=0
             dir=1
             lis=[]
