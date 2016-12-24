@@ -1,12 +1,15 @@
 class Solution(object):
+    def __init__(self):
+        self.map={}
+        
     def integerReplacement(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        if n==1:
-            return 0
-        elif n%2==0:
-            return 1+self.integerReplacement(n/2)
+        if self.map.get(n)!=None:
+            return self.map[n]
         else:
-            return 1+min(self.integerReplacement(n-1),self.integerReplacement(n+1))
+            if n==1:
+                self.map[n]= 0
+            elif n%2==0:
+                self.map[n]= 1+self.integerReplacement(n/2)
+            else:
+                self.map[n]= 1+min(self.integerReplacement(n-1),self.integerReplacement(n+1))
+            return self.map[n]
